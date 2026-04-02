@@ -1,65 +1,333 @@
-import Image from "next/image";
-
 export default function Home() {
+  const skills = {
+    frontend: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Bootstrap",
+    ],
+    backend: ["PHP", "Python", "Java", "C#", "REST APIs", "CRUD Operations"],
+    databases: ["MySQL", "PostgreSQL", "Firebase"],
+    testing: [
+      "Cypress",
+      "Playwright",
+      "CodeceptJS",
+      "Functional Testing",
+      "Regression Testing",
+      "UAT",
+    ],
+    microsoft: [
+      "Power Apps",
+      "Power Automate",
+      "SharePoint Online",
+      "SPFx",
+      "RBAC",
+    ],
+    tools: ["Git", "GitHub", "Node.js", "Apache", "Figma", "Power BI"],
+  };
+
+  const experiences = [
+    {
+      title: "Technical Specialist I",
+      company: "Alliance Software, Inc.",
+      period: "June 2025 – March 2026",
+      points: [
+        "Provided L1 and L2 application support for international users across multiple countries.",
+        "Performed debugging, root cause analysis, and issue resolution in production and staging environments.",
+        "Conducted functional, regression, and UAT testing for new releases and patches.",
+        "Built a tenant-wide SharePoint-integrated application using Power Apps, Power Automate, and SPFx.",
+        "Collaborated with developers, QA teams, and service owners to improve stability and user experience.",
+      ],
+    },
+    {
+      title: "AI Research Intern",
+      company: "Alliance Software, Inc.",
+      period: "February 2025 – June 2025",
+      points: [
+        "Researched and evaluated AI tools for developer productivity and internal adoption.",
+        "Built proof-of-concept projects using React, Transformers.js, and Vite.",
+        "Designed and executed test scenarios using Cypress, Playwright, and CodeceptJS.",
+        "Documented findings, test results, and technical recommendations for stakeholders.",
+      ],
+    },
+    {
+      title: "Freelance Web Developer",
+      company: "Cebu City",
+      period: "January 2024 – December 2024",
+      points: [
+        "Designed, developed, and deployed custom web systems for business and academic workflows.",
+        "Built responsive user interfaces and backend logic for application workflows.",
+        "Handled maintenance, bug fixes, optimization, and post-deployment support.",
+      ],
+    },
+  ];
+
+  const projects = [
+    {
+      title: "TSUGA & GA: Predictive Class & Faculty Scheduling System",
+      description:
+        "A full-stack web-based scheduling system designed to automate faculty and class scheduling using predictive logic and rule-based constraints.",
+      stack: [
+        "Full-Stack Web Development",
+        "Scheduling Logic",
+        "Database Design",
+      ],
+      live: "[swushsfaculty.swucite.tech](https://swushsfaculty.swucite.tech/)",
+      paper:
+        "[kms-fict.horizon.ac.id](https://kms-fict.horizon.ac.id/ojs/index.php/innovex/article/view/8)",
+    },
+    {
+      title: "Tenant-Wide SharePoint Navigation App",
+      description:
+        "A SharePoint-integrated application built with Power Apps, Power Automate, and SPFx to provide a floating navigation experience across tenant sites.",
+      stack: ["Power Apps", "Power Automate", "SPFx", "SharePoint Online"],
+      live: "#",
+      paper: "#",
+    },
+    {
+      title: "AI Tool Evaluation and Testing Sandbox",
+      description:
+        "A proof-of-concept environment for researching and testing AI tools for software development workflows using modern frontend and automation testing tools.",
+      stack: ["React", "Transformers.js", "Vite", "Cypress", "Playwright"],
+      live: "#",
+      paper: "#",
+    },
+  ];
+
+  const certificates = [
+    "Responsive Web Design — freeCodeCamp",
+    "Legacy JavaScript Algorithms and Data Structures — freeCodeCamp",
+    "Setting a Foundation for Successful Test Automation — TestAutomationU",
+    "Java Programming — TestAutomationU",
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="border-b border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-20 md:flex-row md:items-center md:justify-between">
+          <div className="max-w-3xl">
+            <p className="mb-3 text-sm uppercase tracking-[0.2em] text-cyan-400">
+              Software Engineer
+            </p>
+            <h1 className="text-4xl font-bold leading-tight md:text-6xl">
+              Kurt Hydein P. Imperial
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              Full-stack developer with experience in web development,
+              automation, quality assurance, and production support. I build
+              practical systems that are reliable, scalable, and user-focused.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400"
+              >
+                View Projects
+              </a>
+              <a
+                href="/Kurt-Imperial-CV.pdf"
+                target="_blank"
+                className="rounded-xl border border-white/20 px-6 py-3 font-semibold transition hover:bg-white/10"
+              >
+                Download CV
+              </a>
+            </div>
+          </div>
+
+          <div className="w-full max-w-sm rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+            <div className="space-y-4 text-sm text-slate-300">
+              <p>
+                <span className="font-semibold text-white">Location:</span>{" "}
+                Lapu-Lapu City, Cebu, PH
+              </p>
+              <p>
+                <span className="font-semibold text-white">LinkedIn:</span>{" "}
+                <a
+                  href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
+                  target="_blank"
+                  className="text-cyan-400 hover:underline"
+                >
+                  linkedin.com/in/kurtimperial02
+                </a>
+              </p>
+              <p>
+                <span className="font-semibold text-white">GitHub:</span>{" "}
+                <a
+                  href="[github.com](https://github.com/kurtimperial02)"
+                  target="_blank"
+                  className="text-cyan-400 hover:underline"
+                >
+                  github.com/kurtimperial02
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20" id="about">
+        <div className="max-w-3xl">
+          <h2 className="text-3xl font-bold">About Me</h2>
+          <p className="mt-6 leading-8 text-slate-300">
+            I’m a software engineer based in Cebu, Philippines, with hands-on
+            experience in full-stack web development, systems analysis,
+            automation, quality assurance, and production support. I’ve worked
+            on scalable systems for local and international users, translating
+            business needs into technical solutions that are maintainable and
+            effective.
+          </p>
+          <p className="mt-4 leading-8 text-slate-300">
+            My work includes building custom web applications, debugging live
+            issues, performing root-cause analysis, supporting releases, and
+            improving workflows through automation. I enjoy creating systems
+            that solve real problems and deliver a smooth user experience.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20" id="skills">
+        <h2 className="text-3xl font-bold">Skills</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {Object.entries(skills).map(([category, items]) => (
+            <div
+              key={category}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+            >
+              <h3 className="mb-4 text-xl font-semibold capitalize">
+                {category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20" id="experience">
+        <h2 className="text-3xl font-bold">Experience</h2>
+        <div className="mt-10 space-y-6">
+          {experiences.map((job) => (
+            <div
+              key={job.title}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+            >
+              <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold">{job.title}</h3>
+                  <p className="text-slate-300">{job.company}</p>
+                </div>
+                <p className="text-sm text-cyan-400">{job.period}</p>
+              </div>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-300">
+                {job.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20" id="projects">
+        <h2 className="text-3xl font-bold">Projects</h2>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+            >
+              <h3 className="text-xl font-semibold">{project.title}</h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                {project.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {project.stack.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 flex gap-4">
+                {project.live !== "#" && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    className="text-cyan-400 hover:underline"
+                  >
+                    Live
+                  </a>
+                )}
+                {project.paper !== "#" && (
+                  <a
+                    href={project.paper}
+                    target="_blank"
+                    className="text-cyan-400 hover:underline"
+                  >
+                    Paper
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20" id="certificates">
+        <h2 className="text-3xl font-bold">Certificates</h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {certificates.map((cert) => (
+            <div
+              key={cert}
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 text-slate-300"
+            >
+              {cert}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20" id="contact">
+        <h2 className="text-3xl font-bold">Contact</h2>
+        <div className="mt-6 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-6">
+          <p className="leading-8 text-slate-300">
+            I’m open to software engineering, web development, QA, automation,
+            and support-related opportunities. You can reach me through LinkedIn
+            or GitHub.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            <a
+              href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
+              target="_blank"
+              className="rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-400"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="[github.com](https://github.com/kurtimperial02)"
+              target="_blank"
+              className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
