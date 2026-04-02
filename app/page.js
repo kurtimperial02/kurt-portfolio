@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ProjectCarousel from "./components/ProjectCarousel";
 
 export default function Home() {
   const skills = {
@@ -73,29 +74,65 @@ export default function Home() {
       description:
         "A full-stack web-based scheduling system designed to automate faculty and class scheduling using predictive logic and rule-based constraints.",
       stack: [
-        "Full-Stack Web Development",
+        "Full‑Stack Web Development",
         "Scheduling Logic",
         "Database Design",
       ],
-      live: "https://swushsfaculty.swucite.tech",
+      live: "https://swushsfaculty.swucite.tech/",
       paper:
         "https://kms-fict.horizon.ac.id/ojs/index.php/innovex/article/view/8",
-    },
-    {
-      title: "Tenant-Wide SharePoint Navigation App",
-      description:
-        "A SharePoint-integrated application built with Power Apps, Power Automate, and SPFx to provide a floating navigation experience across tenant sites.",
-      stack: ["Power Apps", "Power Automate", "SPFx", "SharePoint Online"],
-      live: "#",
-      paper: "#",
+      images: [
+        "/project-cfss-1.png",
+        "/project-cfss-2.png",
+        "/project-cfss-3.png",
+      ],
     },
     {
       title: "AI Tool Evaluation and Testing Sandbox",
       description:
-        "A proof-of-concept environment for researching and testing AI tools for software development workflows using modern frontend and automation testing tools.",
+        "A proof‑of‑concept environment for researching and testing AI tools for software development workflows using modern frontend and automation testing tools.",
       stack: ["React", "Transformers.js", "Vite", "Cypress", "Playwright"],
       live: "#",
       paper: "#",
+      images: ["/project-ai-1.png"],
+    },
+    {
+      title: "Connected Consumer – CBG Platform (Unilab)",
+      description:
+        "An internal and consumer‑facing digital platform built within Unilab’s Connected Consumer – CBG division to modernize engagement with brands and streamline campaign operations across digital channels.",
+      stack: [
+        "CMS",
+        "System Analysis",
+        "Dev Support",
+        "Microsoft SQL Server",
+        "Postman",
+        "QA testing",
+      ],
+      live: "#",
+      paper: "#",
+      images: [
+        "/unilab-platform-1.png",
+        "/unilab-platform-2.png",
+        "/unilab-platform-3.png",
+      ],
+    },
+    {
+      title:
+        "Original Equipment Solutions (OESL) – Application Support & SharePoint Solutions",
+      description:
+        "Delivered L1/L2 application support for a global automotive solutions company, handling debugging, root cause analysis, and issue resolution across production and staging environments. Conducted UAT and regression testing, supported international users, and built a SharePoint-integrated app using Power Apps, Power Automate, and SPFx with role-based access and cross-site navigation.",
+      stack: [
+        "Application Support (L1/L2)",
+        "Debugging & RCA",
+        "Power Apps",
+        "Power Automate",
+        "SPFx",
+        "SharePoint Online",
+        "QA & UAT Testing",
+      ],
+      live: "#",
+      paper: "#",
+      images: ["/project-oesl-1.png", "/project-oesl-2.png"],
     },
   ];
 
@@ -153,6 +190,7 @@ export default function Home() {
                   src="/profile.png"
                   alt="Kurt Imperial"
                   fill
+                  sizes="100vw"
                   className="object-cover"
                 />
               </div>
@@ -317,6 +355,7 @@ export default function Home() {
               key={project.title}
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.07]"
             >
+              <ProjectCarousel images={project.images} title={project.title} />
               <h3 className="text-xl font-semibold text-white transition group-hover:text-cyan-300">
                 {project.title}
               </h3>
@@ -416,6 +455,12 @@ export default function Home() {
               className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
             >
               GitHub
+            </a>
+            <a
+              href="mailto:kurtimperial02@gmail.com"
+              className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
+            >
+              Email Me
             </a>
           </div>
         </div>
