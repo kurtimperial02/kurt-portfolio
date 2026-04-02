@@ -120,10 +120,11 @@ export default function Home() {
               Kurt Hydein P. Imperial
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              Full-stack developer with experience in web development,
-              automation, quality assurance, and production support. I build
-              practical systems that are reliable, scalable, and user-focused.
+            <p className="leading-8 text-slate-300">
+              I’m open to software engineering, full-stack development, QA,
+              automation, and production support opportunities. If you’d like to
+              collaborate or discuss a role, feel free to connect with me
+              through LinkedIn or GitHub.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
@@ -204,10 +205,18 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      {/* About me */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="about">
         <div className="max-w-3xl">
-          <h2 className="text-3xl font-bold">About Me</h2>
+          <div className="mb-10">
+            <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+              About
+            </p>
+            <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+              About Me
+            </h2>
+          </div>
+
           <p className="mt-6 leading-8 text-slate-300">
             I’m a software engineer based in Cebu, Philippines, with hands-on
             experience in full-stack web development, systems analysis,
@@ -224,9 +233,17 @@ export default function Home() {
           </p>
         </div>
       </section>
-
+      {/* skills */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="skills">
-        <h2 className="text-3xl font-bold">Skills</h2>
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+            Skills
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+            My Skills
+          </h2>
+        </div>
+
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {Object.entries(skills).map(([category, items]) => (
             <div
@@ -250,14 +267,22 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+      {/* experience */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="experience">
-        <h2 className="text-3xl font-bold">Experience</h2>
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+            Experience
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+            My Experience
+          </h2>
+        </div>
+
         <div className="mt-10 space-y-6">
           {experiences.map((job) => (
             <div
               key={job.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.06]"
             >
               <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
                 <div>
@@ -275,16 +300,27 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+      {/* projects */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="projects">
-        <h2 className="text-3xl font-bold">Projects</h2>
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+            Projects
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+            My Projects
+          </h2>
+        </div>
+
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <div
               key={project.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
+              className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.07]"
             >
-              <h3 className="text-xl font-semibold">{project.title}</h3>
+              <h3 className="text-xl font-semibold text-white transition group-hover:text-cyan-300">
+                {project.title}
+              </h3>
+
               <p className="mt-4 leading-7 text-slate-300">
                 {project.description}
               </p>
@@ -298,21 +334,23 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-
-              <div className="mt-6 flex gap-4">
+              <div className="mt-6 flex flex-wrap gap-4">
                 {project.live !== "#" && (
                   <a
                     href={project.live}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-cyan-400 hover:underline"
                   >
                     Live
                   </a>
                 )}
+
                 {project.paper !== "#" && (
                   <a
                     href={project.paper}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="text-cyan-400 hover:underline"
                   >
                     Paper
@@ -323,23 +361,39 @@ export default function Home() {
           ))}
         </div>
       </section>
-
+      {/* certificates */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="certificates">
-        <h2 className="text-3xl font-bold">Certificates</h2>
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+            Certificates
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+            My Certificates
+          </h2>
+        </div>
+
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {certificates.map((cert) => (
             <div
               key={cert}
-              className="rounded-2xl border border-white/10 bg-white/5 p-5 text-slate-300"
+              className="rounded-2xl border border-white/10 bg-white/5 p-5 text-slate-300 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.06]"
             >
               {cert}
             </div>
           ))}
         </div>
       </section>
-
+      {/* contact */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="contact">
-        <h2 className="text-3xl font-bold">Contact</h2>
+        <div className="mb-10">
+          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+            Contact
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
+            Get In Touch
+          </h2>
+        </div>
+
         <div className="mt-6 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-6">
           <p className="leading-8 text-slate-300">
             I’m open to software engineering, web development, QA, automation,
@@ -350,6 +404,7 @@ export default function Home() {
             <a
               href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-400"
             >
               LinkedIn
@@ -357,6 +412,7 @@ export default function Home() {
             <a
               href="[github.com](https://github.com/kurtimperial02)"
               target="_blank"
+              rel="noopener noreferrer"
               className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
             >
               GitHub
@@ -364,6 +420,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="border-t border-white/10 px-6 py-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Kurt Hydein P. Imperial. All rights reserved.</p>
+          <div className="flex gap-4">
+            <a
+              href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-cyan-400"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="[github.com](https://github.com/kurtimperial02)"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-cyan-400"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }

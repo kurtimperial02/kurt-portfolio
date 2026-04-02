@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="/" className="text-lg font-semibold text-cyan-400">
-          KH Imperial
+          Kurt Imperial
         </a>
 
         <div className="hidden gap-6 md:flex">
