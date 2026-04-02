@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Home() {
   const skills = {
     frontend: [
@@ -106,15 +108,18 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">
-      <section className="border-b border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-20 md:flex-row md:items-center md:justify-between">
-          <div className="max-w-3xl">
-            <p className="mb-3 text-sm uppercase tracking-[0.2em] text-cyan-400">
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_35%),radial-gradient(circle_at_left,rgba(59,130,246,0.12),transparent_30%)]" />
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.4fr_0.9fr] md:items-center">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.25em] text-cyan-400">
               Software Engineer
             </p>
-            <h1 className="text-4xl font-bold leading-tight md:text-6xl">
+
+            <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
               Kurt Hydein P. Imperial
             </h1>
+
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
               Full-stack developer with experience in web development,
               automation, quality assurance, and production support. I build
@@ -124,45 +129,76 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#projects"
-                className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400"
+                className="rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition duration-200 hover:bg-cyan-300"
               >
                 View Projects
               </a>
+
               <a
                 href="/Kurt-Imperial-CV.pdf"
                 target="_blank"
-                className="rounded-xl border border-white/20 px-6 py-3 font-semibold transition hover:bg-white/10"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition duration-200 hover:bg-white/10"
               >
                 Download CV
               </a>
             </div>
           </div>
 
-          <div className="w-full max-w-sm rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
+            <div className="mb-6 flex items-center gap-4">
+              <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-white/10">
+                <Image
+                  src="/profile.png"
+                  alt="Kurt Imperial"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-white">
+                  Kurt Imperial
+                </h2>
+                <p className="text-sm text-slate-400">
+                  Full-Stack Developer · QA · Automation
+                </p>
+              </div>
+            </div>
+
             <div className="space-y-4 text-sm text-slate-300">
               <p>
                 <span className="font-semibold text-white">Location:</span>{" "}
                 Lapu-Lapu City, Cebu, PH
               </p>
+
               <p>
                 <span className="font-semibold text-white">LinkedIn:</span>{" "}
                 <a
                   href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-cyan-400 hover:underline"
                 >
                   linkedin.com/in/kurtimperial02
                 </a>
               </p>
+
               <p>
                 <span className="font-semibold text-white">GitHub:</span>{" "}
                 <a
                   href="[github.com](https://github.com/kurtimperial02)"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="text-cyan-400 hover:underline"
                 >
                   github.com/kurtimperial02
                 </a>
+              </p>
+
+              <p>
+                <span className="font-semibold text-white">Focus:</span>{" "}
+                Full-stack development, QA, automation, and production support
               </p>
             </div>
           </div>
