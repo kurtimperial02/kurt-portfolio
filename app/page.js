@@ -77,9 +77,9 @@ export default function Home() {
         "Scheduling Logic",
         "Database Design",
       ],
-      live: "[swushsfaculty.swucite.tech](https://swushsfaculty.swucite.tech/)",
+      live: "https://swushsfaculty.swucite.tech",
       paper:
-        "[kms-fict.horizon.ac.id](https://kms-fict.horizon.ac.id/ojs/index.php/innovex/article/view/8)",
+        "https://kms-fict.horizon.ac.id/ojs/index.php/innovex/article/view/8",
     },
     {
       title: "Tenant-Wide SharePoint Navigation App",
@@ -176,7 +176,7 @@ export default function Home() {
               <p>
                 <span className="font-semibold text-white">LinkedIn:</span>{" "}
                 <a
-                  href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
+                  href="https://www.linkedin.com/in/kurtimperial02"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-400 hover:underline"
@@ -188,7 +188,7 @@ export default function Home() {
               <p>
                 <span className="font-semibold text-white">GitHub:</span>{" "}
                 <a
-                  href="[github.com](https://github.com/kurtimperial02)"
+                  href="https://github.com/kurtimperial02"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-cyan-400 hover:underline"
@@ -402,7 +402,7 @@ export default function Home() {
           </p>
           <div className="mt-6 flex flex-wrap gap-4">
             <a
-              href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
+              href="https://www.linkedin.com/in/kurtimperial02"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-400"
@@ -410,7 +410,7 @@ export default function Home() {
               LinkedIn
             </a>
             <a
-              href="[github.com](https://github.com/kurtimperial02)"
+              href="https://github.com/kurtimperial02"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
@@ -426,7 +426,7 @@ export default function Home() {
           <p>© 2026 Kurt Hydein P. Imperial. All rights reserved.</p>
           <div className="flex gap-4">
             <a
-              href="[linkedin.com](https://www.linkedin.com/in/kurtimperial02)"
+              href="https://www.linkedin.com/in/kurtimperial02"
               target="_blank"
               rel="noopener noreferrer"
               className="transition hover:text-cyan-400"
@@ -434,7 +434,7 @@ export default function Home() {
               LinkedIn
             </a>
             <a
-              href="[github.com](https://github.com/kurtimperial02)"
+              href="https://github.com/kurtimperial02"
               target="_blank"
               rel="noopener noreferrer"
               className="transition hover:text-cyan-400"
