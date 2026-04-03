@@ -17,19 +17,30 @@ export default function Home() {
     testing: [
       "Cypress",
       "Playwright",
-      "CodeceptJS",
+      "API Testing",
       "Functional Testing",
       "Regression Testing",
       "UAT",
+      "Manual Testing",
     ],
     microsoft: [
+      "Microsoft Office",
       "Power Apps",
       "Power Automate",
       "SharePoint Online",
       "SPFx",
       "RBAC",
     ],
-    tools: ["Git", "GitHub", "Node.js", "Apache", "Figma", "Power BI"],
+    tools: [
+      "Git",
+      "GitHub",
+      "Node.js",
+      "Apache",
+      "Figma",
+      "AI Tools",
+      "CMS",
+      "Postman",
+    ],
   };
 
   const experiences = [
