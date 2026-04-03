@@ -97,7 +97,7 @@ export default function Home() {
       stack: ["React", "Transformers.js", "Vite", "Cypress", "Playwright"],
       live: "#",
       paper: "#",
-      images: ["/project-ai-1.png"],
+      images: ["/project-folder/AITool/aitool.png"],
       confidential: true,
     },
     {
@@ -191,7 +191,7 @@ export default function Home() {
                   src="/profile.png"
                   alt="Kurt Imperial"
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 100vw, 300px"
                   className="object-cover"
                 />
               </div>
