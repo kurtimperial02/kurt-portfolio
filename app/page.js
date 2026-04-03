@@ -70,9 +70,9 @@ export default function Home() {
 
   const projects = [
     {
-      title: "TSUGA & GA: Predictive Class & Faculty Scheduling System",
+      title: "SWU Class & Faculty Scheduling System",
       description:
-        "A full-stack web-based scheduling system designed to automate faculty and class scheduling using predictive logic and rule-based constraints.",
+        "A full-stack web-based scheduling system designed to automate faculty and class scheduling using predictive logic and rule-based constraints. It is designed to optimize class and faculty scheduling for the Senior High School Department of Southwestern University – PHINMA.",
       stack: [
         "Full‑Stack Web Development",
         "Scheduling Logic",
@@ -82,10 +82,13 @@ export default function Home() {
       paper:
         "https://kms-fict.horizon.ac.id/ojs/index.php/innovex/article/view/8",
       images: [
-        "/project-cfss-1.png",
-        "/project-cfss-2.png",
-        "/project-cfss-3.png",
+        "/project-folder/CFSS/cfss1.png",
+        "/project-folder/CFSS/cfss2.png",
+        "/project-folder/CFSS/cfss3.png",
+        "/project-folder/CFSS/cfss4.png",
+        "/project-folder/CFSS/cfss5.png",
       ],
+      confidential: false,
     },
     {
       title: "AI Tool Evaluation and Testing Sandbox",
@@ -95,9 +98,10 @@ export default function Home() {
       live: "#",
       paper: "#",
       images: ["/project-ai-1.png"],
+      confidential: true,
     },
     {
-      title: "Connected Consumer – CBG Platform (Unilab)",
+      title: "Connected Consumer – CBG Platform (Unilab)",
       description:
         "An internal and consumer‑facing digital platform built within Unilab’s Connected Consumer – CBG division to modernize engagement with brands and streamline campaign operations across digital channels.",
       stack: [
@@ -110,15 +114,11 @@ export default function Home() {
       ],
       live: "#",
       paper: "#",
-      images: [
-        "/unilab-platform-1.png",
-        "/unilab-platform-2.png",
-        "/unilab-platform-3.png",
-      ],
+      images: ["/project-folder/CBG/unilab.png"],
+      confidential: true,
     },
     {
-      title:
-        "Original Equipment Solutions (OESL) – Application Support & SharePoint Solutions",
+      title: "Original Equipment Solutions (OESL)",
       description:
         "Delivered L1/L2 application support for a global automotive solutions company, handling debugging, root cause analysis, and issue resolution across production and staging environments. Conducted UAT and regression testing, supported international users, and built a SharePoint-integrated app using Power Apps, Power Automate, and SPFx with role-based access and cross-site navigation.",
       stack: [
@@ -132,7 +132,8 @@ export default function Home() {
       ],
       live: "#",
       paper: "#",
-      images: ["/project-oesl-1.png", "/project-oesl-2.png"],
+      images: ["/project-folder/OESL/oesl.png"],
+      confidential: true,
     },
   ];
 
@@ -349,16 +350,21 @@ export default function Home() {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-2">
           {projects.map((project) => (
             <div
               key={project.title}
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.07]"
             >
               <ProjectCarousel images={project.images} title={project.title} />
-              <h3 className="text-xl font-semibold text-white transition group-hover:text-cyan-300">
-                {project.title}
-              </h3>
+              <div>
+                {/* Top row: title + badge */}
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="text-xl font-semibold text-white transition group-hover:text-cyan-300">
+                    {project.title}
+                  </h3>
+                </div>
+              </div>
 
               <p className="mt-4 leading-7 text-slate-300">
                 {project.description}
@@ -381,7 +387,7 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:underline"
                   >
-                    Live
+                    Live Site
                   </a>
                 )}
 
@@ -392,8 +398,21 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="text-cyan-400 hover:underline"
                   >
-                    Paper
+                    Paper Link
                   </a>
+                )}
+
+                {project.confidential && (
+                  <span className="shrink-0 rounded-full bg-yellow-400/10 border border-yellow-400/30 px-2 py-1 text-xs text-yellow-300">
+                    Internal
+                  </span>
+                )}
+
+                {/* Second row: disclaimer */}
+                {project.confidential && (
+                  <p className="mt-1 text-xs text-slate-400 italic">
+                    Limited details due to NDA.
+                  </p>
                 )}
               </div>
             </div>
