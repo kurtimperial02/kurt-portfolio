@@ -1,5 +1,6 @@
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import AiChat from "./components/AiChat";
 
 export const metadata = {
   title: "Kurt Hydein P. Imperial | Software Engineer",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         <div className="pt-20">{children}</div>
+        <AiChat />
       </body>
     </html>
   );
