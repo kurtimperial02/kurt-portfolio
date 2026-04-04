@@ -431,7 +431,7 @@ export default function Home() {
         </div>
       </section>
       {/* certificates */}
-      <section className="mx-auto max-w-6xl px-6 py-20" id="certificates">
+      {/* <section className="mx-auto max-w-6xl px-6 py-20" id="certificates">
         <div className="mb-10">
           <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
             Certificates
@@ -451,7 +451,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
       {/* contact */}
       <section className="mx-auto max-w-6xl px-6 py-20" id="contact">
         <div className="mb-10">
