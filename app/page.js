@@ -96,7 +96,7 @@ export default function Home() {
           href="#"
           className={`font-black text-xl tracking-tighter ${theme.heading}`}
         >
-          K. IMPERIAL
+          KURT IMPERIAL
         </a>
 
         <div className="hidden md:flex gap-8">
