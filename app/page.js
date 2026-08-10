@@ -250,8 +250,9 @@ export default function Home() {
         className={`w-full relative py-32 border-b-2 ${theme.cardBorder} overflow-hidden`}
       >
         {/* Background Graphic: Bolder Dots */}
+        {/* Background Graphic: Bolder Dots */}
         <div
-          className={`absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,${isDark ? "rgba(148,163,184,0.15)" : "rgba(148,163,184,0.4)"}_3px,transparent_0)] bg-[size:32px_32px] pointer-events-none`}
+          className={`absolute inset-0 bg-[size:32px_32px] pointer-events-none ${isDark ? "bg-[radial-gradient(circle_at_2px_2px,rgba(148,163,184,0.15)_3px,transparent_0)]" : "bg-[radial-gradient(circle_at_2px_2px,rgba(148,163,184,0.4)_3px,transparent_0)]"}`}
         ></div>
 
         {/* Floating Graphic 1: JSON Payload */}
