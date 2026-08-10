@@ -1,524 +1,476 @@
+"use client";
+
+import { useState } from "react";
+import AiChat from "./components/AiChat";
 import Image from "next/image";
 import ProjectCarousel from "./components/ProjectCarousel";
 
 export default function Home() {
-  const skills = {
-    frontend: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Bootstrap",
-    ],
-    backend: ["PHP", "Python", "Java", "C#", "REST APIs", "CRUD Operations"],
-    databases: ["MySQL", "PostgreSQL", "Firebase"],
-    testing: [
-      "Cypress",
-      "Playwright",
-      "API Testing",
-      "Functional Testing",
-      "Regression Testing",
-      "UAT",
-      "Manual Testing",
-    ],
-    microsoft: [
-      "Microsoft Office",
-      "Power Apps",
-      "Power Automate",
-      "SharePoint Online",
-      "SPFx",
-      "RBAC",
-    ],
-    tools: [
-      "Git",
-      "GitHub",
-      "Node.js",
-      "Apache",
-      "Figma",
-      "AI Tools",
-      "CMS",
-      "Postman",
-    ],
-  };
+  const [isDark, setIsDark] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const experiences = [
     {
       title: "Technical Specialist I",
       company: "Alliance Software, Inc.",
-      period: "June 2025 – March 2026",
+      period: "Jun 2025 – Mar 2026",
       points: [
-        "Provided L1 and L2 application support for international users across multiple countries.",
-        "Performed debugging, root cause analysis, and issue resolution in production and staging environments.",
-        "Conducted functional, regression, and UAT testing for new releases and patches.",
-        "Built a tenant-wide SharePoint-integrated application using Power Apps, Power Automate, and SPFx.",
-        "Collaborated with developers, QA teams, and service owners to improve stability and user experience.",
+        "Debugged and resolved live production issues for international enterprise users.",
+        "Built a tenant-wide SharePoint application using Power Apps and SPFx.",
+        "Ran functional, regression, and UAT testing to keep releases stable.",
       ],
     },
     {
       title: "AI Research Intern",
       company: "Alliance Software, Inc.",
-      period: "February 2025 – June 2025",
+      period: "Feb 2025 – Jun 2025",
       points: [
-        "Researched and evaluated AI tools for developer productivity and internal adoption.",
+        "Researched and evaluated AI tools for developer productivity.",
         "Built proof-of-concept projects using React, Transformers.js, and Vite.",
-        "Designed and executed test scenarios using Cypress, Playwright, and CodeceptJS.",
-        "Documented findings, test results, and technical recommendations for stakeholders.",
       ],
     },
     {
       title: "Freelance Web Developer",
       company: "Cebu City",
-      period: "January 2024 – December 2024",
+      period: "Jan 2024 – Dec 2024",
       points: [
-        "Designed, developed, and deployed custom web systems for business and academic workflows.",
-        "Built responsive user interfaces and backend logic for application workflows.",
-        "Handled maintenance, bug fixes, optimization, and post-deployment support.",
+        "Designed and deployed custom web systems for business workflows.",
+        "Handled end-to-end frontend and backend development.",
       ],
     },
   ];
 
   const projects = [
     {
-      title: "SWU Class & Faculty Scheduling System",
+      title: "SWU Class & Faculty Scheduling",
       description:
-        "A full-stack web-based scheduling system designed to automate faculty and class scheduling using predictive logic and rule-based constraints. It is designed to optimize class and faculty scheduling for the Senior High School Department of Southwestern University – PHINMA.",
-      stack: [
-        "Full‑Stack Web Development",
-        "Scheduling Logic",
-        "Database Design",
-      ],
+        "Automated faculty and class scheduling using predictive logic and rule-based constraints for Southwestern University.",
+      stack: ["Full‑Stack", "Scheduling Logic", "Database Design"],
       live: "https://swushsfaculty.swucite.tech/",
-      paper:
-        "https://kms-fict.horizon.ac.id/ojs/index.php/innovex/article/view/8",
-      images: [
-        "/project-folder/CFSS/cfss1.png",
-        "/project-folder/CFSS/cfss2.png",
-        "/project-folder/CFSS/cfss3.png",
-        "/project-folder/CFSS/cfss4.png",
-        "/project-folder/CFSS/cfss5.png",
-      ],
-      confidential: false,
+      images: ["/project-folder/CFSS/cfss1.png"],
     },
     {
-      title: "AI Tool Evaluation and Testing Sandbox",
+      title: "OESL Global Support",
       description:
-        "A proof‑of‑concept environment for researching and testing AI tools for software development workflows using modern frontend and automation testing tools.",
-      stack: ["React", "Transformers.js", "Vite", "Cypress", "Playwright"],
+        "L1/L2 application support handling debugging, root cause analysis, and UAT testing across production environments.",
+      stack: ["Power Apps", "SPFx", "QA & UAT Testing"],
       live: "#",
-      paper: "#",
-      images: ["/project-folder/AITool/aitool.png"],
-      confidential: true,
-    },
-    {
-      title: "Connected Consumer – CBG Platform (Unilab)",
-      description:
-        "An internal and consumer‑facing digital platform built within Unilab’s Connected Consumer – CBG division to modernize engagement with brands and streamline campaign operations across digital channels.",
-      stack: [
-        "CMS",
-        "System Analysis",
-        "Dev Support",
-        "Microsoft SQL Server",
-        "Postman",
-        "QA testing",
-      ],
-      live: "#",
-      paper: "#",
-      images: ["/project-folder/CBG/unilab.png"],
-      confidential: true,
-    },
-    {
-      title: "Original Equipment Solutions (OESL)",
-      description:
-        "Delivered L1/L2 application support for a global automotive solutions company, handling debugging, root cause analysis, and issue resolution across production and staging environments. Conducted UAT and regression testing, supported international users, and built a SharePoint-integrated app using Power Apps, Power Automate, and SPFx with role-based access and cross-site navigation.",
-      stack: [
-        "Application Support (L1/L2)",
-        "Debugging & RCA",
-        "Power Apps",
-        "Power Automate",
-        "SPFx",
-        "SharePoint Online",
-        "QA & UAT Testing",
-      ],
-      live: "#",
-      paper: "#",
       images: ["/project-folder/OESL/oesl.png"],
-      confidential: true,
+    },
+    {
+      title: "Connected Consumer Platform",
+      description:
+        "An internal digital platform built for Unilab to modernize brand engagement and streamline campaign operations.",
+      stack: ["CMS", "System Analysis", "Microsoft SQL Server"],
+      live: "#",
+      images: ["/project-folder/CBG/unilab.png"],
     },
   ];
 
-  const certificates = [
-    "Responsive Web Design — freeCodeCamp",
-    "Legacy JavaScript Algorithms and Data Structures — freeCodeCamp",
-    "Setting a Foundation for Successful Test Automation — TestAutomationU",
-    "Java Programming — TestAutomationU",
-  ];
+  // Global Theme Object
+  const theme = {
+    bg: isDark ? "bg-slate-950" : "bg-slate-50",
+    altBg: isDark ? "bg-slate-900" : "bg-slate-100",
+    text: isDark ? "text-slate-200" : "text-slate-800",
+    textMuted: isDark ? "text-slate-400" : "text-slate-500",
+    heading: isDark ? "text-white" : "text-slate-950",
+    cardBg: isDark ? "bg-slate-950" : "bg-white",
+    cardBorder: isDark ? "border-slate-700" : "border-slate-900",
+    pillBg: isDark ? "bg-slate-800" : "bg-slate-200",
+    accentBg: isDark ? "bg-slate-200" : "bg-slate-900",
+    accentText: isDark ? "text-slate-900" : "text-white",
+    shadow: isDark
+      ? "shadow-[4px_4px_0px_rgba(51,65,85,1)]"
+      : "shadow-[4px_4px_0px_rgba(15,23,42,1)]",
+  };
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.15),transparent_35%),radial-gradient(circle_at_left,rgba(59,130,246,0.12),transparent_30%)]" />
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.4fr_0.9fr] md:items-center">
-          <div>
-            <p className="mb-4 text-sm uppercase tracking-[0.25em] text-cyan-400">
-              Software Engineer
-            </p>
+    <main
+      className={`relative min-h-screen transition-colors duration-500 ${theme.bg} ${theme.text}`}
+    >
+      {/* INLINE NAVBAR */}
+      <nav
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl px-6 py-4 flex items-center justify-between rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} backdrop-blur-xl ${theme.shadow} transition-colors duration-500`}
+      >
+        <a
+          href="#"
+          className={`font-black text-xl tracking-tighter ${theme.heading}`}
+        >
+          K. IMPERIAL
+        </a>
 
-            <h1 className="text-4xl font-bold leading-tight text-white md:text-6xl">
-              Kurt Hydein P. Imperial
+        <div className="hidden md:flex gap-8">
+          <a
+            href="#projects"
+            className={`font-bold text-sm hover:underline underline-offset-4 ${theme.text}`}
+          >
+            Projects
+          </a>
+          <a
+            href="#experience"
+            className={`font-bold text-sm hover:underline underline-offset-4 ${theme.text}`}
+          >
+            Experience
+          </a>
+          <a
+            href="#freelance"
+            className={`font-bold text-sm hover:underline underline-offset-4 ${theme.text}`}
+          >
+            Clients
+          </a>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className={`px-4 py-2 border-2 ${theme.cardBorder} rounded-lg font-black text-xs transition-transform active:translate-y-1 ${theme.pillBg} ${theme.heading}`}
+          >
+            {isDark ? "☀️ LIGHT" : "🌙 DARK"}
+          </button>
+
+          <button
+            className="md:hidden font-black text-xl"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Dropdown */}
+      {mobileMenuOpen && (
+        <div
+          className={`fixed top-20 left-1/2 -translate-x-1/2 z-40 w-[95%] rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} ${theme.shadow} p-4 flex flex-col gap-4 md:hidden`}
+        >
+          <a
+            href="#projects"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`font-bold ${theme.heading}`}
+          >
+            Projects
+          </a>
+          <a
+            href="#experience"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`font-bold ${theme.heading}`}
+          >
+            Experience
+          </a>
+          <a
+            href="#freelance"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`font-bold ${theme.heading}`}
+          >
+            Clients
+          </a>
+        </div>
+      )}
+
+      {/* SECTION 1: HERO (Grid Background) */}
+      <section
+        className={`w-full relative pt-40 pb-32 border-b-2 ${theme.cardBorder} overflow-hidden`}
+      >
+        {/* Background Graphic: Grid */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(148,163,184,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.15)_1px,transparent_1px)] bg-[size:64px_64px] pointer-events-none"></div>
+
+        {/* Floating Graphic 1: Data Analytics / Spreadsheet */}
+        <div
+          className={`absolute top-[20%] left-[2%] md:left-[8%] px-4 py-3 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-xs ${theme.shadow} rotate-[-3deg] opacity-70 pointer-events-none hidden sm:block`}
+        >
+          <span className="font-bold text-slate-500 mr-2">ƒx</span>
+          =SUM(overall_totals, outstanding_balances)
+        </div>
+
+        {/* Floating Graphic 2: System Status */}
+        <div
+          className={`absolute bottom-[15%] right-[2%] md:right-[10%] px-4 py-3 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-xs ${theme.shadow} rotate-[4deg] opacity-70 flex items-center gap-2 pointer-events-none`}
+        >
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+          SYS_ACTIVE
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col-reverse md:flex-row gap-12 items-center md:items-start justify-between">
+          <div className="max-w-2xl text-center md:text-left">
+            <div
+              className={`inline-block mb-6 px-4 py-1.5 rounded-xl text-sm font-bold border-2 ${theme.cardBorder} ${theme.cardBg}`}
+            >
+              Systems Analyst & Full-Stack Dev
+            </div>
+            <h1
+              className={`text-5xl md:text-7xl font-black tracking-tight leading-[1.1] mb-6 ${theme.heading}`}
+            >
+              I build reliable systems and automate workflows.
             </h1>
-
-            <p className="leading-8 text-slate-300">
-              I’m open to software engineering, full-stack development, QA,
-              automation, and production support opportunities. If you’d like to
-              collaborate or discuss a role, feel free to connect with me
-              through LinkedIn or GitHub.
+            <p
+              className={`text-lg md:text-xl leading-relaxed mb-10 font-medium ${theme.textMuted}`}
+            >
+              Based in Cebu, Philippines. I specialize in turning complex
+              business requirements into clean, scalable architecture, QA
+              automation, and enterprise support.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
               <a
                 href="#projects"
-                className="rounded-xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition duration-200 hover:bg-cyan-300"
+                className={`px-8 py-4 rounded-xl border-2 border-transparent font-bold transition-transform hover:-translate-y-1 ${theme.accentBg} ${theme.accentText} ${theme.shadow}`}
               >
-                View Projects
+                See My Work
               </a>
-
               <a
                 href="/Kurt-Imperial-CV.pdf"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-white transition duration-200 hover:bg-white/10"
+                className={`px-8 py-4 rounded-xl font-bold border-2 transition-all hover:-translate-y-1 ${theme.cardBorder} ${theme.cardBg} ${theme.heading} ${theme.shadow}`}
               >
                 Download CV
               </a>
             </div>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-            <div className="mb-6 flex items-center gap-4">
-              <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-white/10">
-                <Image
-                  src="/profile.png"
-                  alt="Kurt Imperial"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 300px"
-                  className="object-cover"
-                />
-              </div>
+          <div className="relative w-48 h-48 md:w-64 md:h-64 shrink-0 hover:rotate-2 transition-transform duration-300">
+            <div
+              className={`absolute inset-0 translate-x-4 translate-y-4 rounded-2xl border-2 ${theme.cardBorder} ${theme.accentBg}`}
+            ></div>
+            <div
+              className={`relative h-full w-full overflow-hidden rounded-2xl border-2 ${theme.cardBorder} bg-slate-200`}
+            >
+              <Image
+                src="/profile.png"
+                alt="Kurt Imperial"
+                fill
+                className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div>
-                <h2 className="text-xl font-semibold text-white">
-                  Kurt Imperial
-                </h2>
-                <p className="text-sm text-slate-400">
-                  Full-Stack Developer · QA · Automation
+      {/* SECTION 2: PROJECTS (Pronounced Dot Matrix Background) */}
+      <section
+        id="projects"
+        className={`w-full relative py-32 border-b-2 ${theme.cardBorder} overflow-hidden`}
+      >
+        {/* Background Graphic: Bolder Dots */}
+        <div
+          className={`absolute inset-0 bg-[radial-gradient(circle_at_2px_2px,${isDark ? "rgba(148,163,184,0.15)" : "rgba(148,163,184,0.4)"}_3px,transparent_0)] bg-[size:32px_32px] pointer-events-none`}
+        ></div>
+
+        {/* Floating Graphic 1: JSON Payload */}
+        <div
+          className={`absolute top-[10%] right-[2%] md:right-[8%] px-4 py-3 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-xs ${theme.shadow} rotate-[3deg] opacity-80 pointer-events-none hidden sm:block`}
+        >
+          <span className="text-slate-500 mr-2">{"{"}</span>
+          "status": "DEPLOYED", "QA_pass": true
+          <span className="text-slate-500 ml-2">{"}"}</span>
+        </div>
+
+        {/* Floating Graphic 2: Creative Aspect Ratio Config */}
+        <div
+          className={`absolute top-[45%] left-[2%] md:left-[4%] px-3 py-2 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-[10px] ${theme.shadow} rotate-[-5deg] opacity-70 pointer-events-none hidden md:block`}
+        >
+          --ar 9:16
+        </div>
+
+        {/* Floating Graphic 3: API Route */}
+        <div
+          className={`absolute bottom-[10%] left-[10%] md:left-[20%] px-4 py-3 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-[10px] ${theme.shadow} rotate-[6deg] opacity-70 pointer-events-none hidden lg:block`}
+        >
+          <span className="text-emerald-500 font-bold mr-2">POST</span>{" "}
+          /api/schedule/validate
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          <h2
+            className={`text-4xl font-black mb-12 tracking-tight ${theme.heading}`}
+          >
+            Featured Builds.
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className={`group flex flex-col p-6 rounded-2xl border-2 transition-all duration-300 hover:-translate-y-2 ${theme.cardBg} ${theme.cardBorder} ${theme.shadow}`}
+              >
+                <div
+                  className={`mb-6 rounded-xl overflow-hidden border-2 ${theme.cardBorder}`}
+                >
+                  <ProjectCarousel
+                    images={project.images}
+                    title={project.title}
+                  />
+                </div>
+                <h3 className={`text-2xl font-bold mb-3 ${theme.heading}`}>
+                  {project.title}
+                </h3>
+                <p className={`mb-6 font-medium flex-grow ${theme.textMuted}`}>
+                  {project.description}
                 </p>
-              </div>
-            </div>
-
-            <div className="space-y-4 text-sm text-slate-300">
-              <p>
-                <span className="font-semibold text-white">Location:</span>{" "}
-                Lapu-Lapu City, Cebu, PH
-              </p>
-
-              <p>
-                <span className="font-semibold text-white">LinkedIn:</span>{" "}
-                <a
-                  href="https://www.linkedin.com/in/kurtimperial02"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:underline"
-                >
-                  linkedin.com/in/kurtimperial02
-                </a>
-              </p>
-
-              <p>
-                <span className="font-semibold text-white">GitHub:</span>{" "}
-                <a
-                  href="https://github.com/kurtimperial02"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 hover:underline"
-                >
-                  github.com/kurtimperial02
-                </a>
-              </p>
-
-              <p>
-                <span className="font-semibold text-white">Focus:</span>{" "}
-                Full-stack development, QA, automation, and production support
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* About me */}
-      <section className="mx-auto max-w-6xl px-6 py-20" id="about">
-        <div className="max-w-3xl">
-          <div className="mb-10">
-            <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-              About
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-              About Me
-            </h2>
-          </div>
-
-          <p className="mt-6 leading-8 text-slate-300">
-            I’m a software engineer based in Cebu, Philippines, with hands-on
-            experience in full-stack web development, systems analysis,
-            automation, quality assurance, and production support. I’ve worked
-            on scalable systems for local and international users, translating
-            business needs into technical solutions that are maintainable and
-            effective.
-          </p>
-          <p className="mt-4 leading-8 text-slate-300">
-            My work includes building custom web applications, debugging live
-            issues, performing root-cause analysis, supporting releases, and
-            improving workflows through automation. I enjoy creating systems
-            that solve real problems and deliver a smooth user experience.
-          </p>
-        </div>
-      </section>
-      {/* skills */}
-      <section className="mx-auto max-w-6xl px-6 py-20" id="skills">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Skills
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-            My Skills
-          </h2>
-        </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {Object.entries(skills).map(([category, items]) => (
-            <div
-              key={category}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6"
-            >
-              <h3 className="mb-4 text-xl font-semibold capitalize">
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {items.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-300"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* experience */}
-      <section className="mx-auto max-w-6xl px-6 py-20" id="experience">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Experience
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-            My Experience
-          </h2>
-        </div>
-
-        <div className="mt-10 space-y-6">
-          {experiences.map((job) => (
-            <div
-              key={job.title}
-              className="rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.06]"
-            >
-              <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold">{job.title}</h3>
-                  <p className="text-slate-300">{job.company}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className={`px-3 py-1 rounded-lg border-2 ${theme.cardBorder} text-xs font-bold ${theme.pillBg} ${theme.text}`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
-                <p className="text-sm text-cyan-400">{job.period}</p>
-              </div>
-              <ul className="mt-4 list-disc space-y-2 pl-5 text-slate-300">
-                {job.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* projects */}
-      <section className="mx-auto max-w-6xl px-6 py-20" id="projects">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Projects
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-            My Projects
-          </h2>
-        </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-2">
-          {projects.map((project) => (
-            <div
-              key={project.title}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:bg-white/[0.07]"
-            >
-              <ProjectCarousel images={project.images} title={project.title} />
-              <div>
-                {/* Top row: title + badge */}
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="text-xl font-semibold text-white transition group-hover:text-cyan-300">
-                    {project.title}
-                  </h3>
-                </div>
-              </div>
-
-              <p className="mt-4 leading-7 text-slate-300">
-                {project.description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <div className="mt-6 flex flex-wrap gap-4">
                 {project.live !== "#" && (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cyan-400 hover:underline"
+                    className={`inline-flex items-center gap-2 font-black hover:underline underline-offset-4 ${theme.heading}`}
                   >
-                    Live Site
+                    View Live Site <span>↗</span>
                   </a>
-                )}
-
-                {project.paper !== "#" && (
-                  <a
-                    href={project.paper}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-cyan-400 hover:underline"
-                  >
-                    Paper Link
-                  </a>
-                )}
-
-                {project.confidential && (
-                  <span className="shrink-0 rounded-full bg-yellow-400/10 border border-yellow-400/30 px-2 py-1 text-xs text-yellow-300">
-                    Internal
-                  </span>
-                )}
-
-                {/* Second row: disclaimer */}
-                {project.confidential && (
-                  <p className="mt-1 text-xs text-slate-400 italic">
-                    Limited details due to NDA.
-                  </p>
                 )}
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* certificates */}
-      {/* <section className="mx-auto max-w-6xl px-6 py-20" id="certificates">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Certificates
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-            My Certificates
-          </h2>
-        </div>
-
-        <div className="mt-8 grid gap-4 md:grid-cols-2">
-          {certificates.map((cert) => (
-            <div
-              key={cert}
-              className="rounded-2xl border border-white/10 bg-white/5 p-5 text-slate-300 transition duration-300 hover:border-cyan-400/30 hover:bg-white/[0.06]"
-            >
-              {cert}
-            </div>
-          ))}
-        </div>
-      </section> */}
-      {/* contact */}
-      <section className="mx-auto max-w-6xl px-6 py-20" id="contact">
-        <div className="mb-10">
-          <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
-            Contact
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-white md:text-4xl">
-            Get In Touch
-          </h2>
-        </div>
-
-        <div className="mt-6 max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-6">
-          <p className="leading-8 text-slate-300">
-            I’m open to software engineering, web development, QA, automation,
-            and support-related opportunities. You can reach me through LinkedIn
-            or GitHub.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-4">
-            <a
-              href="https://www.linkedin.com/in/kurtimperial02"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl bg-cyan-500 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-400"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/kurtimperial02"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
-            >
-              GitHub
-            </a>
-            <a
-              href="mailto:kurtimperial02@gmail.com"
-              className="rounded-xl border border-white/20 px-5 py-3 font-semibold hover:bg-white/10"
-            >
-              Email Me
-            </a>
+            ))}
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/10 px-6 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Kurt Hydein P. Imperial. All rights reserved.</p>
-          <div className="flex gap-4">
+      {/* SECTION 3: EXPERIENCE (Solid Offset Background) */}
+      <section
+        id="experience"
+        className={`w-full relative py-32 border-b-2 ${theme.cardBorder} ${theme.altBg} overflow-hidden`}
+      >
+        {/* Floating Graphic 1: L2 Support Ticket */}
+        <div
+          className={`absolute top-[15%] left-[2%] md:left-[5%] px-4 py-3 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-[10px] ${theme.shadow} rotate-[3deg] opacity-80 pointer-events-none hidden sm:block`}
+        >
+          <span className="text-amber-500 font-bold mr-2">L2_TICKET:</span>{" "}
+          RESOLVED
+        </div>
+
+        {/* Floating Graphic 2: Gantt Chart */}
+        <div
+          className={`absolute top-[40%] right-[-2%] md:right-[5%] p-4 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} ${theme.shadow} rotate-[-2deg] opacity-80 flex flex-col gap-3 w-48 pointer-events-none hidden lg:flex`}
+        >
+          <div className="text-[10px] font-black tracking-widest uppercase text-slate-500">
+            Milestones
+          </div>
+          <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-sm overflow-hidden border border-slate-300 dark:border-slate-600">
+            <div className="w-[85%] h-full bg-slate-500 dark:bg-slate-400"></div>
+          </div>
+          <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-sm overflow-hidden border border-slate-300 dark:border-slate-600">
+            <div className="w-[60%] h-full bg-slate-400 dark:bg-slate-300 translate-x-[20%]"></div>
+          </div>
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6">
+          <h2
+            className={`text-4xl font-black mb-12 tracking-tight ${theme.heading}`}
+          >
+            Experience.
+          </h2>
+          <div className="space-y-6">
+            {experiences.map((job) => (
+              <div
+                key={job.title}
+                className={`p-6 md:p-8 rounded-2xl border-2 transition-transform hover:-translate-y-1 ${theme.cardBg} ${theme.cardBorder} ${theme.shadow}`}
+              >
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6">
+                  <div>
+                    <h3 className={`text-xl font-black ${theme.heading}`}>
+                      {job.title}
+                    </h3>
+                    <p className={`font-bold mt-1 ${theme.textMuted}`}>
+                      {job.company}
+                    </p>
+                  </div>
+                  <div
+                    className={`px-4 py-2 border-2 ${theme.cardBorder} rounded-xl text-sm font-bold ${theme.pillBg} ${theme.heading}`}
+                  >
+                    {job.period}
+                  </div>
+                </div>
+                <ul className="space-y-3">
+                  {job.points.map((point, i) => (
+                    <li key={i} className="flex gap-3 items-start">
+                      <span className={`font-black mt-0.5 ${theme.heading}`}>
+                        →
+                      </span>
+                      <span className={`font-medium ${theme.text}`}>
+                        {point}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: FREELANCING & CLIENTS (Hazard Stripes Background) */}
+      <section
+        id="freelance"
+        className={`w-full relative py-32 border-b-2 ${theme.cardBorder} overflow-hidden`}
+      >
+        {/* Background Graphic: Diagonal Stripes */}
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_15px,rgba(148,163,184,0.1)_15px,rgba(148,163,184,0.1)_30px)] pointer-events-none"></div>
+
+        {/* Floating Graphic 1: Document */}
+        <div
+          className={`absolute bottom-[20%] left-[5%] md:left-[15%] px-4 py-3 rounded-xl border-2 ${theme.cardBorder} ${theme.cardBg} font-mono text-[10px] ${theme.shadow} rotate-[-5deg] opacity-90 pointer-events-none hidden sm:block`}
+        >
+          📄 scope_of_work.md
+        </div>
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center">
+          <h2
+            className={`text-4xl font-black mb-8 tracking-tight ${theme.heading}`}
+          >
+            Freelancing & Clients.
+          </h2>
+          <div
+            className={`inline-block px-8 py-6 border-2 ${theme.cardBorder} rounded-xl font-black text-2xl md:text-3xl rotate-[-2deg] ${theme.cardBg} ${theme.heading} ${theme.shadow}`}
+          >
+            🚧 CURRENTLY BUILDING 🚧
+          </div>
+          <p className={`mt-8 max-w-md mx-auto font-medium ${theme.textMuted}`}>
+            I am currently compiling case studies, scopes of work, and
+            architecture diagrams for my independent clients. Check back soon.
+          </p>
+        </div>
+      </section>
+
+      {/* FOOTER / CONTACT */}
+      <footer id="contact" className={`w-full py-20 ${theme.bg}`}>
+        <div
+          className={`max-w-3xl mx-auto p-10 text-center rounded-2xl border-2 ${theme.cardBg} ${theme.cardBorder} ${theme.shadow}`}
+        >
+          <h2 className={`text-3xl font-black mb-4 ${theme.heading}`}>
+            Let's build something.
+          </h2>
+          <p className={`mb-8 font-medium ${theme.textMuted}`}>
+            Open for software engineering and support roles.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://www.linkedin.com/in/kurtimperial02"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-cyan-400"
+              href="https://github.com/kurtimperial02"
+              className={`px-6 py-3 border-2 ${theme.cardBorder} rounded-xl font-bold transition-transform hover:-translate-y-1 ${theme.cardBg} ${theme.heading}`}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/kurtimperial02"
+              className={`px-6 py-3 border-2 ${theme.cardBorder} rounded-xl font-bold transition-transform hover:-translate-y-1 ${theme.cardBg} ${theme.heading}`}
             >
               LinkedIn
             </a>
             <a
-              href="https://github.com/kurtimperial02"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-cyan-400"
+              href="mailto:kurtimperial02@gmail.com"
+              className={`px-6 py-3 border-2 border-transparent rounded-xl font-bold transition-transform hover:-translate-y-1 ${theme.accentBg} ${theme.accentText}`}
             >
-              GitHub
+              Email Me
             </a>
           </div>
         </div>
       </footer>
+
+      <AiChat isDark={isDark} />
     </main>
   );
 }

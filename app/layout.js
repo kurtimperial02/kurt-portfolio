@@ -3,9 +3,9 @@ import Navbar from "./components/Navbar";
 import AiChat from "./components/AiChat";
 
 export const metadata = {
-  title: "Kurt Hydein P. Imperial | Software Engineer",
+  title: "Kurt Hydein P. Imperial |Systems Analyst & Software Engineer",
   description:
-    "Portfolio of Kurt Hydein P. Imperial — software engineer specializing in full‑stack development, automation, QA, and production support.",
+    "Portfolio of Kurt Hydein P. Imperial — Systems Analyst and Software Engineer specializing in full‑stack development, automation, QA, and production support.",
   keywords: [
     "Kurt Imperial",
     "Full‑stack developer",
@@ -30,11 +30,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <div className="pt-20">{children}</div>
-        <AiChat />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

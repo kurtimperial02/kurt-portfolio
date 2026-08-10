@@ -1,3 +1,4 @@
+// src/components/Navbar.jsx
 "use client";
 import { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -7,27 +8,28 @@ export default function Navbar() {
 
   const links = [
     { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
-    // { name: "Certificates", href: "#certificates" },
+    { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-slate-950/80 backdrop-blur-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" className="text-lg font-semibold text-cyan-400">
-          Kurt Imperial
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-5xl rounded-3xl border-2 border-slate-900 bg-slate-50/90 dark:bg-slate-900/90 dark:border-slate-700 backdrop-blur-xl shadow-lg transition-colors duration-500">
+      <div className="flex items-center justify-between px-6 py-3">
+        <a
+          href="/"
+          className="text-xl font-black tracking-tighter text-slate-950 dark:text-white"
+        >
+          KURT IMPERIAL
         </a>
 
-        {/* Desktop links */}
+        {/* Desktop links */}
         <div className="hidden gap-6 md:flex">
           {links.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm text-slate-300 transition hover:text-cyan-400"
+              className="text-sm font-bold text-slate-600 hover:text-slate-950 dark:text-slate-400 dark:hover:text-white transition-colors"
               onClick={() => setOpen(false)}
             >
               {link.name}
@@ -35,28 +37,28 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu button */}
         <button
           onClick={() => setOpen(!open)}
-          className="rounded-md p-2 text-slate-300 transition hover:bg-white/10 md:hidden"
+          className="rounded-xl p-2 text-slate-600 hover:bg-slate-200 dark:text-slate-300 dark:hover:bg-slate-800 transition-colors md:hidden"
         >
           {open ? (
-            <XMarkIcon className="h-6 w-6" />
+            <XMarkIcon className="h-6 w-6 stroke-[3]" />
           ) : (
-            <Bars3Icon className="h-6 w-6" />
+            <Bars3Icon className="h-6 w-6 stroke-[3]" />
           )}
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu */}
       {open && (
-        <div className="border-t border-white/10 bg-slate-950/95 px-6 py-3 md:hidden">
-          <div className="flex flex-col space-y-3">
+        <div className="border-t-2 border-slate-900 dark:border-slate-700 px-6 py-4 md:hidden">
+          <div className="flex flex-col space-y-4">
             {links.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-slate-300 transition hover:text-cyan-400"
+                className="text-lg font-black text-slate-800 hover:text-slate-950 dark:text-slate-200 dark:hover:text-white transition-colors"
                 onClick={() => setOpen(false)}
               >
                 {link.name}

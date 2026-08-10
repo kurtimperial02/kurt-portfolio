@@ -1,3 +1,4 @@
+// src/components/ProjectCarousel.jsx
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
@@ -14,9 +15,9 @@ export default function ProjectCarousel({ images = [], title }) {
   }, [emblaApi, images]);
 
   return (
-    <div className="relative mb-4 overflow-hidden rounded-xl border border-white/10 bg-black/30">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
+    <div className="relative w-full h-full bg-slate-200 dark:bg-slate-800 transition-colors duration-500">
+      <div className="overflow-hidden h-full" ref={emblaRef}>
+        <div className="flex h-full">
           {images.map((src, i) => (
             <div
               key={i}
@@ -26,7 +27,7 @@ export default function ProjectCarousel({ images = [], title }) {
                 src={src}
                 alt={`${title} screenshot ${i + 1}`}
                 fill
-                className="object-contain p-2"
+                className="object-cover transition-transform hover:scale-105 duration-700"
                 sizes="(max-width:768px)100vw,50vw"
                 priority={i === 0}
               />
@@ -34,9 +35,6 @@ export default function ProjectCarousel({ images = [], title }) {
           ))}
         </div>
       </div>
-
-      {/* Optional subtle gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
     </div>
   );
 }

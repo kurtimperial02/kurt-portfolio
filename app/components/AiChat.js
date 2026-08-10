@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 
-export default function AiChat() {
+export default function AiChat({ isDark }) {
   const [open, setOpen] = useState(false);
   const [bigScreen, setBigScreen] = useState(false);
   const [input, setInput] = useState("");
@@ -11,7 +11,7 @@ export default function AiChat() {
     {
       role: "assistant",
       content:
-        "Hi — ask me about Kurt's projects, skills, or experience. No personal questions please, I will get fired :)",
+        "SYS_READY: Ask me about Kurt's projects, skills, or experience. (Restricted from personal queries)",
     },
   ]);
   const messagesEndRef = useRef(null);
@@ -41,7 +41,7 @@ export default function AiChat() {
         ...prev,
         {
           role: "assistant",
-          content: data.reply || "Sorry, I couldn't respond.",
+          content: data.reply || "ERR_RESPONSE_FAILED: I couldn't respond.",
         },
       ]);
     } catch (error) {
@@ -49,7 +49,7 @@ export default function AiChat() {
         ...prev,
         {
           role: "assistant",
-          content: "Something went wrong. Please try again.",
+          content: "ERR_NETWORK: Something went wrong. Please try again.",
         },
       ]);
     } finally {
@@ -57,73 +57,124 @@ export default function AiChat() {
     }
   };
 
+  // Dynamic Theme Colors for the Brutalist UI
+  const theme = {
+    buttonBg: isDark ? "bg-slate-200" : "bg-slate-900",
+    buttonText: isDark ? "text-slate-950" : "text-slate-50",
+    border: isDark ? "border-slate-700" : "border-slate-900",
+    shadowSm: isDark
+      ? "shadow-[4px_4px_0px_rgba(51,65,85,1)]"
+      : "shadow-[4px_4px_0px_rgba(15,23,42,1)]",
+    shadowLg: isDark
+      ? "shadow-[8px_8px_0px_rgba(51,65,85,1)]"
+      : "shadow-[8px_8px_0px_rgba(15,23,42,1)]",
+    windowBg: isDark ? "bg-slate-950" : "bg-slate-50",
+    headerBg: isDark ? "bg-slate-900" : "bg-slate-900", // Keep header dark in both modes for contrast
+    headerText: isDark ? "text-slate-200" : "text-slate-50",
+    userMsgBg: isDark ? "bg-slate-200" : "bg-slate-900",
+    userMsgText: isDark ? "text-slate-950" : "text-slate-50",
+    aiMsgBg: isDark ? "bg-slate-900" : "bg-white",
+    aiMsgText: isDark ? "text-slate-200" : "text-slate-900",
+    inputContainerBg: isDark ? "bg-slate-950" : "bg-white",
+    inputFieldBg: isDark ? "bg-slate-800" : "bg-slate-50",
+    inputText: isDark ? "text-slate-200" : "text-slate-900",
+    inputPlaceholder: isDark
+      ? "placeholder:text-slate-500"
+      : "placeholder:text-slate-400",
+    pattern: isDark
+      ? "bg-[radial-gradient(circle_at_2px_2px,rgba(148,163,184,0.15)_1px,transparent_0)]"
+      : "bg-[radial-gradient(circle_at_2px_2px,rgba(148,163,184,0.2)_1px,transparent_0)]",
+  };
+
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-6 right-6 z-50 font-sans">
       {!open ? (
         <button
           onClick={() => setOpen(true)}
-          className="rounded-full bg-cyan-500 px-4 py-3 text-sm font-semibold text-black shadow-lg transition hover:bg-cyan-400"
+          className={`flex items-center gap-3 rounded-xl border-2 ${theme.border} ${theme.buttonBg} px-5 py-3 text-sm font-black tracking-wide ${theme.buttonText} ${theme.shadowSm} transition-transform hover:-translate-y-1 active:translate-y-0 active:shadow-none`}
         >
-          Ask Kurt AI
+          <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+          ASK_SYS_AI
         </button>
       ) : (
         <div
-          className={`rounded-2xl border border-white/10 bg-slate-900 shadow-2xl transition-all duration-300
+          className={`flex flex-col overflow-hidden rounded-2xl border-2 ${theme.border} ${theme.windowBg} ${theme.shadowLg} transition-all duration-300
             ${
               bigScreen
-                ? "fixed inset-2 w-auto h-auto sm:relative sm:inset-auto sm:w-[600px] sm:h-[700px]"
-                : "w-[calc(100vw-40px)] max-w-sm sm:w-80"
+                ? "fixed inset-4 sm:inset-auto sm:bottom-6 sm:right-6 sm:w-[600px] sm:h-[700px]"
+                : "w-[calc(100vw-48px)] max-w-sm sm:w-[350px]"
             }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-white/10 p-3">
-            <h2 className="text-sm font-semibold text-white">AI Assistant</h2>
+          <div
+            className={`flex items-center justify-between border-b-2 ${theme.border} ${theme.headerBg} p-4`}
+          >
             <div className="flex items-center gap-2">
+              <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></div>
+              <h2
+                className={`text-xs font-mono font-bold tracking-widest ${theme.headerText} uppercase`}
+              >
+                SYS_ASSISTANT
+              </h2>
+            </div>
+            <div className="flex items-center gap-4 font-mono font-bold">
               <button
                 onClick={() => setBigScreen(!bigScreen)}
-                className="text-sm text-slate-400 hover:text-white transition"
-                title={bigScreen ? "Smaller screen" : "Bigger screen"}
+                className="text-slate-400 transition hover:text-emerald-400"
+                title={bigScreen ? "Minimize" : "Maximize"}
               >
-                {bigScreen ? "🗗" : "🗖"}
+                {bigScreen ? "[-]" : "[+]"}
               </button>
               <button
                 onClick={() => setOpen(false)}
-                className="text-sm text-slate-400 hover:text-white"
+                className="text-slate-400 transition hover:text-rose-400"
               >
-                ✕
+                [X]
               </button>
             </div>
           </div>
 
-          {/* Messages */}
+          {/* Messages Area */}
           <div
-            className={`space-y-3 overflow-y-auto p-3 ${
-              bigScreen ? "h-[calc(100vh-160px)] sm:h-[580px]" : "h-72 sm:h-80"
+            className={`relative space-y-4 overflow-y-auto p-4 ${theme.pattern} bg-[size:16px_16px] ${
+              bigScreen ? "h-[calc(100vh-180px)] sm:h-[560px]" : "h-80"
             }`}
           >
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`rounded-xl p-3 text-sm ${
+                className={`rounded-xl border-2 ${theme.border} p-3 text-sm font-medium ${theme.shadowSm} ${
                   msg.role === "user"
-                    ? "ml-auto max-w-[85%] bg-cyan-500 text-black"
-                    : "max-w-[85%] bg-white/10 text-white"
+                    ? `ml-auto max-w-[85%] ${theme.userMsgBg} ${theme.userMsgText}`
+                    : `max-w-[85%] ${theme.aiMsgBg} ${theme.aiMsgText}`
                 }`}
               >
+                {msg.role === "assistant" && (
+                  <div className="mb-1 font-mono text-[10px] font-black text-slate-500">
+                    AI_REPLY:
+                  </div>
+                )}
                 {msg.content}
               </div>
             ))}
 
             {loading && (
-              <div className="max-w-[85%] rounded-xl bg-white/10 p-3 text-sm text-white animate-pulse">
-                Thinking...
+              <div
+                className={`max-w-[85%] rounded-xl border-2 ${theme.border} ${theme.aiMsgBg} p-3 text-sm font-bold text-slate-500 ${theme.shadowSm} animate-pulse`}
+              >
+                <div className="mb-1 font-mono text-[10px] font-black text-slate-500">
+                  AI_STATUS:
+                </div>
+                Processing_Query...
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="flex gap-2 border-t border-white/10 p-3">
+          {/* Input Area */}
+          <div
+            className={`flex gap-2 border-t-2 ${theme.border} ${theme.inputContainerBg} p-3`}
+          >
             <input
               type="text"
               value={input}
@@ -131,15 +182,15 @@ export default function AiChat() {
               onKeyDown={(e) => {
                 if (e.key === "Enter") sendMessage();
               }}
-              placeholder="Ask about projects or skills..."
-              className="flex-1 rounded-lg border border-white/10 bg-black/20 px-3 py-2 text-sm text-white outline-none placeholder:text-slate-500"
+              placeholder="Enter query..."
+              className={`flex-1 rounded-lg border-2 ${theme.border} ${theme.inputFieldBg} px-3 py-2 text-sm font-medium ${theme.inputText} transition-colors ${theme.inputPlaceholder} outline-none`}
             />
             <button
               onClick={sendMessage}
               disabled={loading}
-              className="rounded-lg bg-cyan-500 px-3 py-2 text-sm font-medium text-black transition hover:bg-cyan-400 disabled:opacity-50"
+              className={`rounded-lg border-2 ${theme.border} ${theme.buttonBg} px-4 py-2 text-sm font-black ${theme.buttonText} ${theme.shadowSm} transition-all active:translate-y-px active:shadow-none disabled:opacity-50`}
             >
-              Send
+              SEND
             </button>
           </div>
         </div>
